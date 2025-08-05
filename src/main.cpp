@@ -37,24 +37,24 @@ void setup() {
 
 unsigned long previousMillis = 0;
 const unsigned long interval = 1000; 
-
+//Note: A string longer than 20 characters may not fit on the screen, adjust accordingly.
 list<string> textList = {
     "Hello, World!",
     "This is a test.",
-    "Centering text is fun!",
+    "Centering text",
     "Adafruit SSD1306",
     "ESP32 with OLED"
 };
 
 int i = 0;
-
+int listSize = textList.size() - 1;
 void loop() {
   unsigned long currentMillis = millis();
   
   if (currentMillis - previousMillis >= interval) {
       previousMillis = currentMillis;
 
-    if (i > 4) {
+    if (i > listSize) {
         i = 0; // Reset index if it exceeds the list size
     }
     auto it = textList.begin();
